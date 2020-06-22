@@ -65,10 +65,12 @@ function sum(A) {
     return A.reduce((a, b) => a + b, 0);
 }
 
+let allGood = true;
 function showResults(A, expected) {
     const result = solution(A);
     const resOK = isEqual(result, expected);
     if (!resOK) {
+        allGood = false;
         console.log(resOK, result, expected);
     }
 }
@@ -91,4 +93,7 @@ function createTestArray(length, from, to) {
 
 function isEqual(a, b) {
     return a === b;
+}
+if (allGood) {
+    console.log('ALL GOOD!!!')
 }

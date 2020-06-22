@@ -75,10 +75,12 @@ function splitArray(array) {
     return resp;
 }
 
+let allGood = true;
 function showResults(A, expected) {
     const result = solution(A);
     const resOK = isEqual(result, expected);
     if (!resOK) {
+        allGood = false;
         console.log(resOK, result, expected);
     }
 }
@@ -116,4 +118,7 @@ function createTestArray(length, missing) {
 
 function isEqual(a, b) {
     return a === b;
+}
+if (allGood) {
+    console.log('ALL GOOD!!!')
 }

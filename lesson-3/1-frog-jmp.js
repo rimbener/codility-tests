@@ -39,10 +39,12 @@ function solution(X, Y, D) {
     return steps;
 }
 
+let allGood = true;
 function showResults(X, Y, D, expected) {
     const result = solution(X, Y, D);
     const resOK = isEqual(result, expected);
     if (!resOK) {
+        allGood = false;
         console.log(resOK, result, expected);
     }
 }
@@ -51,4 +53,7 @@ showResults(1, 5, 2, 2);
 
 function isEqual(a, b) {
     return a === b;
+}
+if (allGood) {
+    console.log('ALL GOOD!!!')
 }
