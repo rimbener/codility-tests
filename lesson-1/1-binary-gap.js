@@ -56,13 +56,15 @@ function removeTrailingZeros(binaryNumber, onlyZerosArray) {
     return onlyZerosArray;
 }
 
+let allGood = true;
 function showResults(N, expected) {
     const result = solution(N);
     if (result !== expected) {
+        allGood = false;
         console.log(N, toBinary(N), result, result === expected);
     }
 }
-/*
+
 showResults(1, 0);
 showResults(5, 1);
 showResults(6, 0);
@@ -84,7 +86,6 @@ showResults(805306373, 25);
 showResults(1376796946, 5);
 showResults(1073741825, 29);
 showResults(1610612737, 28);
-*/
 
 // example1
 showResults(1041, 5);
@@ -116,3 +117,7 @@ showResults(1376796946, 5);
 showResults(1073741825, 29);
 // large6
 showResults(1610612737, 28);
+
+if (allGood) {
+    console.log('ALL GOOD!!!')
+}
