@@ -44,18 +44,18 @@ Write an efficient algorithm for the following assumptions:
 */
 
 function solution(A) {
-  const east = 0;
-  const firstEast = A.indexOf(east);
+  let pairs = 0;
+  let eastDirection = 0;
+  let toEastCars = 0;
 
-  let count = 0;
-  for (let i = firstEast; i < A.length; i++) {
-    const direction = A[i];
-    if (direction === east) {
-      const passingCars = A.slice(i + 1, A.length).filter(el => el !== direction).length;
-      count += passingCars;
+  for (let i = 0; i < A.length; i++) {
+    if (eastDirection === A[i]) {
+      toEastCars++;
+    } else {
+      pairs += toEastCars;
     }
   }
-  return count;
+  return pairs <= 1000000000 ? pairs : -1;
 }
 
 let allGood = true;
@@ -78,3 +78,19 @@ function isEqual(a, b) {
 }
 if (allGood) console.log('ALL GOOD!!!')
 
+/*
+function solution(A) {
+  const east = 0;
+  const firstEast = A.indexOf(east);
+
+  let count = 0;
+  for (let i = firstEast; i < A.length; i++) {
+    const direction = A[i];
+    if (direction === east) {
+      const passingCars = A.slice(i + 1, A.length).filter(el => el !== direction).length;
+      count += passingCars;
+    }
+  }
+  return count;
+}
+*/
